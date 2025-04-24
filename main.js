@@ -123,6 +123,11 @@ function draw_color_buttons() {
   for (const { color, rect } of color_buttons) {
     ctx.fillStyle = color;
     ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+    if (selected_color === color) {
+      ctx.strokeStyle = "yellow";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(rect.x - 2, rect.y - 2, rect.w + 4, rect.h + 4);
+    }
   }
 }
 
@@ -185,6 +190,11 @@ function draw() {
       "Next>",
       next_text_rect.x + next_text_rect.w / 2,
       next_text_rect.y + next_text_rect.h / 2 + 14
+    );
+    ctx.fillText(
+      "<Back",
+      back_text_rect.x + back_text_rect.w / 2,
+      back_text_rect.y + back_text_rect.h / 2 + 14
     );
   } else if (show_level_select) {
     ctx.drawImage(assets.bg, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -320,6 +330,11 @@ canvas.addEventListener("mousedown", function (evt) {
     if (pointInRect(pos, next_text_rect)) {
       show_instruction_screen = false;
       show_level_select = true;
+      return;
+    }
+    if (pointInRect(pos, back_text_rect)) {
+      show_instruction_screen = false;
+      show_start_screen = true;
       return;
     }
   } else if (show_level_select) {
