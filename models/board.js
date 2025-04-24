@@ -19,6 +19,7 @@ class Board {
         for (let x = 0; x <= this.le; x++) {
             ctx.beginPath();
             ctx.strokeStyle = LIGHT_GRID;
+            ctx.lineWidth = 1;
             ctx.moveTo(this.boardStartX + x * this.cellWidth, this.boardStartY);
             ctx.lineTo(this.boardStartX + x * this.cellWidth, this.height + this.boardStartY);
             ctx.stroke();
@@ -27,6 +28,7 @@ class Board {
         for (let y = 0; y <= this.he; y++) {
             ctx.beginPath();
             ctx.strokeStyle = LIGHT_GRID;
+            ctx.lineWidth = 1;
             ctx.moveTo(this.boardStartX, this.boardStartY + y * this.cellWidth);
             ctx.lineTo(this.boardStartX + this.width, this.boardStartY + y * this.cellWidth);
             ctx.stroke();
