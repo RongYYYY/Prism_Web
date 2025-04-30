@@ -421,6 +421,7 @@ canvas.addEventListener("mousemove", function (evt) {
 
 // Keyboard
 window.addEventListener("keydown", function (evt) {
+  evt.preventDefault();
   if (evt.code === "Space") {
     show_isometric = !show_isometric;
   } else if (evt.code === "Enter" || evt.code === "NumpadEnter") {
