@@ -1,19 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Luminara Demo</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Luminara Demo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #141518;
+      color: #d2e0d0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      padding-top: 3rem;
+      padding-bottom: 1rem;
+      font-size: 4rem;
+      font-weight: bold;
+      color: #a9d3a9;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    #game-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      border: 2px solid #4a7d6c;
+      box-shadow: 0 0 25px rgba(100, 200, 180, 0.3);
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    #info-panel {
+      width: 90%;
+      max-width: 1000px;
+      padding: 2rem;
+      background-color: #1a1b1e;
+      border-top: 1px solid #333;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #info-panel h2 {
+      color: #97bfa7;
+      margin-top: 1.5rem;
+    }
+
+    #info-panel p,
+    #info-panel ul {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    #info-panel ul {
+      padding-left: 1.5rem;
+    }
+
+    #team-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    }
+
+    .team-photo {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    #team-info {
+    flex: 1;
+    min-width: 250px;
+    }
+
+    .team-member {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #cbe3c0;
+    }
+
+
+    .team-member span {
+      display: inline-block;
+      color: #8fd4b1;
+    }
+
+    footer {
+      font-size: 0.85rem;
+      color: #6fa38a;
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
 <body>
+
+  <header>Luminara</header>
+
+  <div id="game-container">
     <canvas id="game-canvas" width="800" height="600"></canvas>
-    <script src="constants.js"></script>
-    <script src="utils.js"></script>
-    <script src="models/plate.js"></script>
-    <script src="models/board.js"></script>
-    <script src="models/iso_board.js"></script>
-    <script src="models/iso_projection.js"></script>
-    <script src="models/level.js"></script>
-    <script src="main.js"></script>
+  </div>
+
+  <div id="info-panel">
+    <p><strong>A digital puzzle game to teach additive-color physics and Boolean visual logic through gameplay.</strong></p>
+
+    <h2>Learning Relevance</h2>
+    <p>Luminara helps learners (ages 14–18) grasp how RGB light blends to create colors, reinforcing knowledge relevant to displays, lighting, and design.</p>
+
+    <h2>Gameplay</h2>
+    <p>Drag transparent red, green, or blue light shapes onto a grid to match a target silhouette. Success is determined when the blended light matches the goal with 95%+ accuracy.</p>
+
+    <h2>Why It Works</h2>
+    <ul>
+      <li><strong>Immediate Feedback:</strong> Real-time color blending shows learners what works—and what doesn’t.</li>
+      <li><strong>Scaffolded Levels:</strong> From two-color basics to three-color constrained logic challenges.</li>
+      <li><strong>Minimal UI:</strong> Reduces distractions so players focus on conceptual understanding.</li>
+    </ul>
+
+    <h2>Learning Objectives</h2>
+    <ul>
+      <li>Predict RGB color outcomes using light-wave reasoning.</li>
+      <li>Use overlapping shapes to achieve logic-based color mixing (AND/OR).</li>
+      <li>Apply geometric thinking to position and align light sources.</li>
+    </ul>
+
+
+    <h2>Our Team</h2>
+        <div id="team-section">
+        <img src="team.png" alt="Team Photo" class="team-photo" />
+        <div id="team-info">
+            <div class="team-member"><strong>Savannah Cheng</strong> – <span>sgcheng@andrew.cmu.edu</span> – User Researcher</div>
+            <div class="team-member"><strong>Guene Mao</strong> – <span>danranm@andrew.cmu.edu</span> – UI Designer</div>
+            <div class="team-member"><strong>Rong Yuan</strong> – <span>rongyuan@andrew.cmu.edu</span> – Game Developer</div>
+            <div class="team-member"><strong>Chloe Zhu</strong> – <span>qingyuzh@andrew.cmu.edu</span> – Game Developer</div>
+        </div>
+    </div>
+
+
+    <footer>Team PRISM | Built with Python & Pygame</footer>
+  </div>
+
+  <script src="constants.js"></script>
+  <script src="utils.js"></script>
+  <script src="models/plate.js"></script>
+  <script src="models/board.js"></script>
+  <script src="models/iso_board.js"></script>
+  <script src="models/iso_projection.js"></script>
+  <script src="models/level.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
